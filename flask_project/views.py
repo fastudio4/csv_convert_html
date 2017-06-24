@@ -1,6 +1,8 @@
+from flask import Flask
 from flask import render_template, request
-from . import project
 import re
+
+project = Flask(__name__)
 
 @project.route('/', methods=['GET', 'POST'])
 def upload():
@@ -20,3 +22,5 @@ def validate(file):
 def create_list(raw, sep):
     return [x.split(sep) for x in raw.read().decode('utf-8').split('\n')][:-1]
 
+if __name__ == '__main__':
+    project.run()
