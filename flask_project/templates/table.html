@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    <h1>Table <a href="{{ url_for ('upload')}}" class="btn btn-default">Return</a></h1>
+    <p class="text-danger"><b>Converter does not work with merging rows and columns (colspan, rowspan)</b></p>
+    {% if error %}
+        {{ error }}
+    {% endif %}
+    {% if content %}
+<samp>
+    &lt;table&gt;
+        {% for row in content %}
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+            {% for col in row %}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;{{ col }}&lt;/td&gt;<br>
+            {% endfor %}
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+        {% endfor %}
+    <br>&lt;/table&gt;
+</samp>
+    {% endif %}
+{% endblock %}

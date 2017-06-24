@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    <h1>Convert csv file to HTML table</h1>
+    <div class="col-md-3 ">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form method="post" action="{{ url_for('upload') }}" enctype="multipart/form-data" >
+                    <div class="form-group">
+                        <h3><span class="glyphicon glyphicon-cloud-upload"></span> First step<br><small>Select file with extension</small></h3>
+                        <input type="file" name="file">
+                    </div>
+                    <div class="form-group">
+                        <h3><span class="glyphicon glyphicon-filter"></span>Second step<br><small>Select  column separator</small></h3>
+
+                        <select class="form-control" name="sep">
+                            <option>*</option>
+                            <option>#</option>
+                            <option>~</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <h3><span class="glyphicon glyphicon-list-alt"></span> Third step<br><small>Convert a file to a table</small></h3>
+                        <input type="submit" class="btn btn-primary btn-lg" value="Convert to HTML">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <h3>How to save a file?</h3>
+        <p class="text-danger"><b>Converter does not work with merging rows and columns (colspan, rowspan)</b></p>
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{ url_for('static', filename='1.jpg') }}" alt="" class="img-thumbnail">
+                <p>Create a table in the program <strong>Libre Office calc</strong></p>
+            </div>
+            <div class="col-md-4">
+                <img src="{{ url_for('static', filename='2.jpg') }}" alt="" class="img-thumbnail">
+                <p>Save the file in the format <strong>CSV</strong></p>
+            </div>
+            <div class="col-md-4">
+                <img src="{{ url_for('static', filename='3.jpg') }}" alt="" class="img-thumbnail">
+                <p>Select a field separator or manually select <strong>* # ~</strong>(characters are rarely used)</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

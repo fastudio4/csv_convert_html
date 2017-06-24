@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Convert csv file to HTML table">
+    <meta name="keywords" content="convert, converter, csv, file, html, table,">
+    <meta name="author" content="Kostiantyn Fastov">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+<footer class="footer">
+    <div class="container navbar-fixed-bottom">
+        <p class="text-muted">&copy; Kostiantyn Fastov</p>
+    </div>
+</footer>
+</body>
+</html>
